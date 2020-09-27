@@ -1,0 +1,6 @@
+.envrc
+.DS_Store
+.terraform
+.kitchen
+*tfstate*
+*google-credentials*

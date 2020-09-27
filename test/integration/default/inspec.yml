@@ -1,0 +1,9 @@
+name: default
+depends:
+  - name: inspec-gcp
+    url: https://github.com/inspec/inspec-gcp/archive/v1.7.0.tar.gz
+attributes:
+  - { name: project_id, required: true, type: string }
+  - { name: name, required: true, type: string }
+  - { name: bucket_name, required: true, type: string }
+  - { name: reader_service_account_email, required: true, type: string }

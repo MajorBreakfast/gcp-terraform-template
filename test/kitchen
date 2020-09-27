@@ -1,0 +1,21 @@
+#! /bin/bash
+
+# Executes the test inside the test environment
+
+set -Eeuo pipefail
+
+export GOOGLE_PROJECT=$TEST_GOOGLE_PROJECT
+export GOOGLE_CREDENTIALS=$TEST_GOOGLE_CREDENTIALS
+unset TFSTATE_BUCKET
+unset TF_CLI_ARGS_init
+
+# Set GOOGLE_APPLICATION_CREDENTIALS env var for the inspec-gcp backend
+export GOOGLE_APPLICATION_CREDENTIALS=$(mktemp); echo $GOOGLE_CREDENTIALS > $GOOGLE_APPLICATION_CREDENTIALS
+
+# Isolate the gcloud cli
+export CLOUDSDK_CONFIG="$(mktemp -d)"; gcloud auth activate-service-account --key-file $GOOGLE_APPLICATION_CREDENTIALS
+
+bundle exec kitchen $@
+
+rm $GOOGLE_APPLICATION_CREDENTIALS
+rm -rf $CLOUDSDK_CONFIG

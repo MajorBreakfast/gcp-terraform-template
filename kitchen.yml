@@ -1,0 +1,21 @@
+driver:
+  name: terraform
+
+provisioner:
+  name: terraform
+
+verifier:
+  name: terraform
+  fail_fast: false
+
+platforms:
+  - name: local
+
+suites:
+  - name: default
+    driver:
+      root_module_directory: test/fixtures/default
+    verifier:
+      systems:
+        - { name: gcp, backend: gcp, controls: [gcp] }
+        - { name: local, backend: local, controls: [local] }
