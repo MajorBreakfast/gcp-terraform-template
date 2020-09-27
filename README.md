@@ -16,6 +16,7 @@ Features:
 - Install Terraform: `brew install tfenv`, `tfenv install <version>`, `tfenv use <version>`
 - Install direnv: `brew install direnv`
 - Install Ruby and Bundler: `brew install ruby`, `gem install bundler`
+- Download this template, e.g. by running `npx degit MajorBreakfast/gcp-terraform-template` inside an empty folder
 - Install Ruby gems: `bundle install`
 
 ## Structure
