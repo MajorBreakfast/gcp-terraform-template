@@ -1,6 +1,6 @@
 # GCP Terraform Template
 
-A template for Terraform projects on the Google Cloud Platform.
+A template for Terraform projects on the Google Cloud Platform. It is intended for Terraform root modules (i.e. modules on which `terraform apply` is run).
 
 Features:
 
